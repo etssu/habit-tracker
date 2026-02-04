@@ -16,4 +16,8 @@ public class HabitRecord { // is used for habit checking
     public boolean isDone(){
         return done;
     }
+
+    public long getHabitId() {
+        return habitId;
+    }
 }
