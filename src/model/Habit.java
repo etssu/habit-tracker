@@ -6,13 +6,13 @@ public class Habit { // is used to create a habit unit
     // setters, getters and habit's main data
     private final long id;
     private String name;
-    private Frequency frequency;
+    private FrequencyType frequencyType;
     private LocalDate startDate;
 
-    public Habit(long id, String name, Frequency  frequency, LocalDate startDate) {
+    public Habit(long id, String name, FrequencyType frequencyType, LocalDate startDate) {
         this.id = id;
         this.name = name;
-        this.frequency = frequency;
+        this.frequencyType = frequencyType;
         this.startDate = startDate;
     }
 
@@ -24,8 +24,8 @@ public class Habit { // is used to create a habit unit
         return name;
     }
 
-    public Frequency getFrequency(){
-        return frequency;
+    public FrequencyType getFrequency(){
+        return frequencyType;
     }
 }
 
