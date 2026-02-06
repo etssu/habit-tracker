@@ -5,6 +5,7 @@ import model.Habit;
 import model.HabitRecord;
 import storage.InMemoryHabitRecordStorage;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -17,15 +18,30 @@ public class StreakCalculator {
         int doneCount = 0;
 
         if (frequencyType == FrequencyType.DAILY) {
-            for (HabitRecord record : records) {
-                LocalDate recordDate = record.getDate();
-                /* if the habit wasn't done today - return 0
-                * if it was done, then go to the day before and check it
-                * count until the day when it wasn't done
-                * the return value is doneCount */
+            LocalDate date = LocalDate.now();
+
+            while (true) { // outer loop to manipulate the days
+                boolean doneThatDay = false;
+
+                for (HabitRecord record : records) { // inner loop to manipulate records
+                    if (record.getDate().isEqual(date) && record.isDone()) {
+                        doneThatDay = true;
+                        break;
+                    }
+                }
+
+                if (doneThatDay) {
+                    doneCount++;
+                    date = date.minusDays(1);
+                } else {
+                    break;
+                }
             }
+            return doneCount;
         }
         if (frequencyType == FrequencyType.TWO_PER_WEEK) {
+            LocalDate weekStart = today.with(DayOfWeek.MONDAY);
+            LocalDate weekEnd = today.with(DayOfWeek.SUNDAY);
             /* (1 period is 2 days per week)
             * create 2 variables: weekStart and weekEnd.
             * if doneCount >= 2 between weekStart and weekEnd -> streak++
