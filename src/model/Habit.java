@@ -20,7 +20,7 @@ public class Habit { // is used to create a habit unit
         return id;
     }
 
-    public String getName(){
+    public String getHabitName(){
         return name;
     }
 

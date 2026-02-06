@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class StreakCalculator {
-    // private LocalDate today = LocalDate.now();
 
     public int calculateStreakPerHabit(Habit habit, FrequencyType frequencyType) {
         InMemoryHabitRecordStorage storage = new InMemoryHabitRecordStorage(); // create a storage
@@ -39,16 +38,17 @@ public class StreakCalculator {
             }
             return doneCount;
         }
-        if (frequencyType == FrequencyType.TWO_PER_WEEK) {
-            LocalDate weekStart = today.with(DayOfWeek.MONDAY);
-            LocalDate weekEnd = today.with(DayOfWeek.SUNDAY);
-            /* (1 period is 2 days per week)
-            * create 2 variables: weekStart and weekEnd.
-            * if doneCount >= 2 between weekStart and weekEnd -> streak++
-            * so we're checking the whole week and then move 1 week behind
-            * else: return 0*/
 
-        }
+        /* (1 period is X days per week)
+         * create 2 variables: weekStart and weekEnd.
+         * if doneCount >= X between weekStart and weekEnd -> streak++
+         * so we're checking the whole week and then move 1 week behind
+         * else: return 0*/
+        if (frequencyType == FrequencyType.TWO_PER_WEEK) {}
+        if (frequencyType == FrequencyType.THREE_PER_WEEK) {}
+        if (frequencyType == FrequencyType.FOUR_PER_WEEK) {}
+        if (frequencyType == FrequencyType.FIVE_PER_WEEK) {}
+        if (frequencyType == FrequencyType.SIX_PER_WEEK) {}
 
         return 0;
     }

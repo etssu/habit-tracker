@@ -7,6 +7,6 @@ public enum FrequencyType {
     FOUR_PER_WEEK,
     FIVE_PER_WEEK,
     SIX_PER_WEEK,
-    WEEKLY,
+    // WEEKLY,
     // MONTHLY // will be implemented later
 }
