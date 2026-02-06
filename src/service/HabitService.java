@@ -10,7 +10,8 @@ public class HabitService { // is used for creating/deleting/editing the habit
     public void deleteHabit() {
         // TODO implement
     }
-    public List<Habit> getAllabits() {
+    public List<Habit> getAllHabits() {
         // TODO implement
+        return null; // for compilation
     }
 }
