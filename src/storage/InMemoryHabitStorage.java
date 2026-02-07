@@ -12,11 +12,11 @@ public class InMemoryHabitStorage {
         return new ArrayList<>(habits); // returning the copy
     }
 
-    public void addHabit(Habit habit) {
+    public void createHabit(Habit habit) {
         habits.add(habit);
     }
 
     public void deleteHabit(long habitId) {
-        habits.removeIf(h -> h.getId() ==  habitId);
+        habits.removeIf(h -> h.getId() == habitId);
     }
 }

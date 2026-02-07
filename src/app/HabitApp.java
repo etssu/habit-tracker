@@ -1,10 +1,17 @@
 package app;
 
 
+import model.Frequency;
+import service.HabitService;
+import storage.InMemoryHabitStorage;
+
 import java.util.Scanner;
 
 public class HabitApp {
     Scanner scanner = new Scanner(System.in);
+    InMemoryHabitStorage storage = new InMemoryHabitStorage();
+    HabitService habitService = new HabitService();
+
     HabitApp() {
         System.out.println("Welcome to your Habit Tracker!");
         System.out.println("Please, choose an option: ");
@@ -22,6 +29,11 @@ public class HabitApp {
                 case 1: // display all habits
                     break;
                 case 2: // add a new habit
+                    System.out.print("Enter habit's name: ");
+                    String habitName = scanner.next();
+                    System.out.print("Enter frequency(daily/x per week): ");
+                    String frequencyInput = scanner.next();
+                    habitService.createHabit(habitName, frequencyInput);
                     break;
                 case 3: // delete a habit
                     break;
